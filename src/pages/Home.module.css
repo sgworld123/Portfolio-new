@@ -1,0 +1,653 @@
+/* Hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 0 120px;
+    animation: fadeIn 1s ease-out;
+}
+.heroContent {
+    flex: 1;
+    padding-right: 60px;
+}
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--foreground);
+}
+.hero p {
+    font-size: 1.1rem;
+    color: var(--muted-foreground);
+    margin-bottom: 40px;
+}
+.heroImage {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: -10px 10px 0px var(--muted);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+}
+.heroImage:hover {
+    transform: scale(1.05);
+    box-shadow: -15px 15px 0px var(--ring);
+}
+.heroImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Recent Posts */
+.recentPosts {
+    background-color: var(--muted);
+    padding: 60px 0;
+    transition: background-color 0.4s ease;
+}
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.sectionHeader h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+.viewAll {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.viewAll:hover {
+    text-decoration: underline;
+}
+.postsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+.postCard {
+    display: flex;
+    flex-direction: column;
+}
+.postTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: var(--card-foreground);
+    transition: color 0.3s;
+}
+.postCard:hover .postTitle {
+    color: var(--primary);
+}
+.postMeta {
+    font-size: 1rem;
+    color: var(--muted-foreground);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.postMeta span {
+    color: var(--foreground);
+    font-weight: 500;
+}
+.postSummary {
+    color: var(--muted-foreground);
+    margin-bottom: 0;
+}
+
+/* Featured Works */
+.featuredWorks {
+    padding: 80px 0;
+}
+
+.featuredWorks h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--foreground);
+}
+
+.worksList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.workItem {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.workItem:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-offset-x) calc(var(--shadow-offset-y) + 8px) 20px 2px var(--shadow-color);
+}
+
+.workItem h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--accent);
+    border: 1px solid var(--border);
+    color: var(--accent-foreground);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.workItem:hover .tag {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .worksList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .worksList {
+        grid-template-columns: 1fr;
+    }
+}
+.category {
+    color: var(--muted-foreground);
+    font-size: 1rem;
+}
+.workDetails p {
+    color: var(--muted-foreground);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 40px 0;
+    }
+    .heroContent {
+        padding-right: 0;
+        margin-top: 40px;
+    }
+    .postsGrid {
+        grid-template-columns: 1fr;
+    }
+    .workItem {
+        flex-direction: column;
+    }
+    .workImg {
+        width: 100%;
+        height: 240px;
+    }
+}
+.osFeaturedWorks {
+    padding: 80px 0;
+}
+
+.osFeaturedWorks h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--foreground);
+}
+
+.osWorksList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.osWorkItem {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.osWorkItem:first-child {
+    border-top: 1px solid var(--border);
+}
+
+.osWorkItem:hover {
+    transform: translateX(6px);
+}
+
+.osWorkImg {
+    width: 120px;
+    height: 80px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.osWorkImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.osWorkItem:hover .osWorkImg img {
+    transform: scale(1.08);
+}
+
+.osWorkDetails {
+    flex: 1;
+}
+
+.osWorkDetails h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--foreground);
+    font-family: var(--font-mono);
+    transition: color 0.3s ease;
+}
+
+.osWorkItem:hover .osWorkDetails h3 {
+    color: var(--primary);
+}
+
+.osWorkMeta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.osTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.osTag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    border: 1px solid var(--border);
+    color: var(--accent-foreground);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.osWorkItem:hover .osTag {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+}
+
+.osWorkDetails p {
+    font-size: 0.88rem;
+    color: var(--muted-foreground);
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .osWorkItem {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .osWorkImg {
+        width: 80px;
+        height: 60px;
+    }
+}
+.expSection {
+    padding: 80px 0;
+}
+
+.expSection h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--foreground);
+}
+
+.expList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.expItem {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.expItem:first-child {
+    border-top: 1px solid var(--border);
+}
+
+.expItem:hover {
+    transform: translateX(6px);
+}
+
+/* 1. Header */
+.expHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.expHeader h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--foreground);
+    transition: color 0.3s ease;
+}
+
+.expItem:hover .expHeader h3 {
+    color: var(--primary);
+}
+
+.expMeta {
+    font-size: 0.82rem;
+    color: var(--muted-foreground);
+    font-family: var(--font-mono);
+}
+
+/* 2. Duration */
+.expDuration {
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    color: var(--muted-foreground);
+}
+
+/* 3. Tags */
+.expTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.expTag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    border: 1px solid var(--border);
+    color: var(--accent-foreground);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.expItem:hover .expTag {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+}
+
+/* 4. Points */
+.expPoints {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.expPoints li {
+    font-size: 0.88rem;
+    color: var(--muted-foreground);
+    line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+    .expItem {
+        gap: 12px;
+    }
+}
+.expHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.expLogo {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--card);
+}
+.contactSection {
+    padding: 80px 0 120px 0;
+}
+
+.contactTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: var(--foreground);
+}
+
+.contactSubtitle {
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+    margin: 0 0 48px 0;
+    max-width: 500px;
+}
+
+/* Grid */
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Left */
+.contactLeft h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+    color: var(--foreground);
+}
+
+.contactItems {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.contactItem:hover {
+    transform: translateX(4px);
+}
+
+.contactIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+}
+
+.contactItem:hover .contactIcon {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.contactLabel {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 2px;
+}
+
+.contactValue {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--muted-foreground);
+    font-family: var(--font-mono);
+}
+
+/* Right */
+.contactRight {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) var(--shadow-color);
+}
+
+.contactRight h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: var(--foreground);
+}
+
+.contactFormSubtitle {
+    font-size: 0.82rem;
+    color: var(--muted-foreground);
+    margin: 0 0 24px 0;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formGroup label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.formGroup input,
+.formGroup textarea {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s ease;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: var(--muted-foreground);
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    border-color: var(--primary);
+}
+
+.sendBtn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sendBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+}

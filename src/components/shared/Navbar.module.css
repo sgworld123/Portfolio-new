@@ -1,0 +1,198 @@
+/* ─── Base ─────────────────────────────────────────────── */
+.nav {
+    position: fixed;
+    ;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 48px;
+    width: 100%;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Scrolled pill ─────────────────────────────────────── */
+.nav.scrolled {
+    top: 12px;
+    width: auto;
+    padding: 10px 24px;
+    border-radius: 999px;
+    justify-content: center;
+    gap: 24px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+body:not(.dark) .nav.scrolled {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Logo ──────────────────────────────────────────────── */
+.logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+
+    /* hidden at top, shown when scrolled */
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav.scrolled .logo {
+    opacity: 1;
+    width: auto;
+}
+
+/* ─── Links ─────────────────────────────────────────────── */
+.links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    transition: gap 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav.scrolled .links {
+    gap: 20px;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--foreground);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.link:hover { opacity: 1; }
+.active { opacity: 1; }
+
+/* ─── Right side ────────────────────────────────────────── */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.themeToggle:hover { opacity: 1; }
+
+/* ─── Hamburger (mobile only) ───────────────────────────── */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--foreground);
+    padding: 4px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.hamburger:hover { opacity: 1; }
+
+/* ─── Mobile dropdown ───────────────────────────────────── */
+.mobileMenu {
+    position: fixed;
+    top: 70px;
+    left: 16px;
+    right: 16px;
+    z-index: 999;
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.4s ease,
+                opacity 0.3s ease;
+    opacity: 0;
+}
+
+body:not(.dark) .mobileMenu {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mobileMenu.mobileMenuOpen {
+    max-height: 400px;
+    padding: 12px 0;
+    opacity: 1;
+}
+
+.mobileLink {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--foreground);
+    padding: 14px 24px;
+    opacity: 0.75;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.mobileLink:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.mobileLink.active { opacity: 1; }
+
+/* ─── Responsive ────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .nav {
+        justify-content: space-between;
+        padding: 16px 20px;
+        width: 100%;
+    }
+
+    .nav.scrolled {
+        top: 10px;
+        width: calc(100% - 32px);
+        padding: 10px 20px;
+        justify-content: space-between;
+        border-radius: 999px;
+    }
+
+    .logo {
+        opacity: 1;
+        width: auto;
+    }
+
+    .links {
+        display: none; /* hidden on mobile, use dropdown instead */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}

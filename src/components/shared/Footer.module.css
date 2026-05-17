@@ -1,0 +1,22 @@
+.footerContent {
+    padding: 60px 0;
+    text-align: center;
+}
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+.socialIcon {
+    color: var(--foreground);
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.socialIcon:hover {
+    color: var(--primary);
+    transform: translateY(-5px) scale(1.1);
+}
+.copyright {
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+}
