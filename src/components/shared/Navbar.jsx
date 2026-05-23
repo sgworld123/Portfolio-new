@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
-import { NAVIGATION_LINKS } from '../../constants';
+import { NAVIGATION_LINKS } from '../../services/mockData';
 import styles from './Navbar.module.css';
 import { classNames } from '../../utils/helpers';
 
@@ -10,6 +10,8 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -17,40 +19,72 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // close menu on route change / scroll
   useEffect(() => {
     if (scrolled) setMenuOpen(false);
   }, [scrolled]);
 
+  const handleNavClick = (e, path) => {
+    e.preventDefault();
+    setMenuOpen(false);
+
+    const hash = path.replace('/', ''); // "/#home" → "#home"
+    const isHomePage = location.pathname === '/';
+
+    if (isHomePage) {
+      const section = document.querySelector(hash);
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        const section = document.querySelector(hash);
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  const renderLink = (link, mobile = false) => {
+    const className = mobile ? styles.mobileLink : styles.link;
+
+    // hash links (our nav sections)
+    if (link.path.startsWith('/#') || link.path.startsWith('#')) {
+      return (
+        <a
+          key={link.label}
+          href={link.path}
+          className={className}
+          onClick={(e) => handleNavClick(e, link.path)}
+        >
+          {link.label}
+        </a>
+      );
+    }
+
+    // regular page routes
+    return (
+      <NavLink
+        key={link.label}
+        to={link.path}
+        className={({ isActive }) => classNames(className, isActive ? styles.active : '')}
+        onClick={() => setMenuOpen(false)}
+      >
+        {link.label}
+      </NavLink>
+    );
+  };
+
   return (
     <>
       <nav className={classNames(styles.nav, scrolled ? styles.scrolled : '')}>
-        {/* Logo — hidden on mobile until scrolled */}
         <div className={styles.logo}>YourLogo</div>
 
-        {/* Links — desktop */}
         <div className={styles.links}>
-          {NAVIGATION_LINKS.map(link =>
-            link.path.startsWith('#') ?
-              <a key={link.label} href={`/${link.path}`} className={styles.link}>
-                {link.label}
-              </a> :
-              <NavLink
-                key={link.label}
-                to={link.path}
-                className={({ isActive }) => classNames(styles.link, isActive ? styles.active : '')}
-              >
-                {link.label}
-              </NavLink>
-          )}
+          {NAVIGATION_LINKS.map(link => renderLink(link, false))}
         </div>
 
-        {/* Right side */}
         <div className={styles.right}>
           <button onClick={toggleTheme} className={styles.themeToggle} aria-label="Toggle Dark Mode">
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
-          {/* Hamburger — mobile only */}
           <button
             className={styles.hamburger}
             onClick={() => setMenuOpen(prev => !prev)}
@@ -61,23 +95,8 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile dropdown */}
       <div className={classNames(styles.mobileMenu, menuOpen ? styles.mobileMenuOpen : '')}>
-        {NAVIGATION_LINKS.map(link =>
-          link.path.startsWith('#') ?
-            <a key={link.label} href={`/${link.path}`} className={styles.mobileLink}
-              onClick={() => setMenuOpen(false)}>
-              {link.label}
-            </a> :
-            <NavLink
-              key={link.label}
-              to={link.path}
-              className={({ isActive }) => classNames(styles.mobileLink, isActive ? styles.active : '')}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </NavLink>
-        )}
+        {NAVIGATION_LINKS.map(link => renderLink(link, true))}
       </div>
     </>
   );

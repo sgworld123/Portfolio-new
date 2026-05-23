@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/shared/Navbar';
 import Footer from '../components/shared/Footer';
 import styles from './MainLayout.module.css';
+import { footerData } from '../services/footerMockData';
 
 const MainLayout = () => {
   return (
@@ -11,7 +12,7 @@ const MainLayout = () => {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <Footer />
+      <Footer {...footerData} />
     </div>
   );
 };

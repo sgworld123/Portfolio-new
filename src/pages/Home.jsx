@@ -1,4 +1,6 @@
 import React from 'react';
+import ProjectCarousel from '../components/ui/ProjectCarousel/ProjectCarousel';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
@@ -6,6 +8,7 @@ import Badge from '../components/ui/Badge';
 import { getRecentPosts, getFeaturedWorks, getSkillSet, getOpenSourceProjects, getExperience } from '../services/mockData';
 import styles from './Home.module.css';
 import { Mail, Phone, Link2, GitFork } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Home = () => {
   const recentPosts = getRecentPosts();
@@ -14,32 +17,86 @@ const Home = () => {
   const openSource = getOpenSourceProjects();
   const navigate = useNavigate();
   const experience = getExperience();
+  const [status, setStatus] = useState('');
+
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,   // from EmailJS dashboard
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,  // from EmailJS dashboard
+        {
+          from_name: userInfo.name,
+          from_email: userInfo.email,
+          message: userInfo.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY    // from EmailJS dashboard → Account
+      );
+
+      setStatus('sent');
+      setUserInfo({ name: '', email: '', message: '' }); // reset form
+
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
 
   return (
     <div className={styles.home}>
       {/* Hero Section */}
-      <section className="container">
+      <section className="container" id="home">
         <div className={styles.hero}>
           <div className={styles.heroContent}>
             <h1>Hi, I am Shreyansh,<br />Creative Technologist</h1>
             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-            <Button onClick={() => alert('Downloading Resume...')}>Download Resume</Button>
+
+            <div className={styles.heroButtons}>
+
+              <Button className={styles.btnPrimary} onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/resume.pdf';
+                link.download = 'Shreyansh_Resume.pdf';
+                link.click();
+              }}>
+                Download Resume
+              </Button>
+
+              <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className={styles.btnOutline}>
+                GitHub
+              </a>
+
+              <a href="https://leetcode.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className={styles.btnOutline}>
+                LeetCode
+              </a>
+
+            </div>
           </div>
+
           <div className={styles.heroImage}>
-            <img src="/assets/avatar.png" alt="John - Avatar" />
+            <img src="/assets/avatar.png" alt="Shreyansh - Avatar" />
           </div>
         </div>
       </section>
 
       {/* Featured Projects Section */}
-      <section className={styles.recentPosts}>
+      <section className={styles.recentPosts} id="projects">
         <div className="container">
           <div className={styles.sectionHeader}>
             <h2>Featured Projects</h2>
           </div>
-          <div className={styles.postsGrid} >
+          <div className={styles.postsGrid}>
             {recentPosts.map(post => (
               <Card key={post.id} className={styles.postCard} onClick={() => navigate(post.navTo)}>
+                <ProjectCarousel images={post.images} title={post.title} />
                 <h3 className={styles.postTitle}>{post.title}</h3>
                 <div className={styles.postMeta}>
                   {post.date} <span>|</span> {post.tags.join(', ')}
@@ -52,7 +109,7 @@ const Home = () => {
       </section>
 
       {/*Skills and technology section */}
-      <section className="container" id="works">
+      <section className="container" id="skills">
         <div className={styles.featuredWorks}>
           <h2>Skills & Technologies</h2>
           <div className={styles.worksList}>
@@ -71,7 +128,7 @@ const Home = () => {
       </section>
 
       {/* Open Source Section */}
-      <section className="container" id="works">
+      <section className="container" id="open-source">
         <div className={styles.osFeaturedWorks}>
           <h2>Open Source Contributions</h2>
           <div className={styles.osWorksList}>
@@ -190,25 +247,35 @@ const Home = () => {
               <h3>Send a Message</h3>
               <p className={styles.contactFormSubtitle}>Fill out the form below and I'll get back to you as soon as possible.</p>
 
-              <div className={styles.contactForm}>
-                <div className={styles.formRow}>
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={styles.formGrid}>
                   <div className={styles.formGroup}>
-                    <label>Name</label>
-                    <input type="text" placeholder="Your name" />
+                    <label htmlFor="name">Name</label>
+                    <input id="name" placeholder="Your name" value={userInfo.name}
+                      onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })} />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Email</label>
-                    <input type="email" placeholder="your.email@example.com" />
+                    <label htmlFor="email">Email</label>
+                    <input id="email" type="email" placeholder="your.email@example.com" value={userInfo.email}
+                      onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })} />
                   </div>
                 </div>
-                <div className={styles.formGroup}>
-                  <label>Message</label>
-                  <textarea rows={5} placeholder="Tell me about your project or just say hello!" />
-                </div>
-                <button className={styles.sendBtn}>Send Message</button>
-              </div>
-            </div>
 
+                <div className={styles.formGroup}>
+                  <label htmlFor="message">Message</label>
+                  <textarea id="message" placeholder="Tell me about your project or just say hello!"
+                    rows={5} value={userInfo.message}
+                    onChange={(e) => setUserInfo({ ...userInfo, message: e.target.value })} />
+                </div>
+
+                <button type="submit" className={styles.submitBtn} disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
+                </button>
+
+                {status === 'sent' && <p className={styles.successMsg}>Message sent successfully!</p>}
+                {status === 'error' && <p className={styles.errorMsg}>Something went wrong. Try again.</p>}
+              </form>
+            </div>
           </div>
         </div>
       </section>

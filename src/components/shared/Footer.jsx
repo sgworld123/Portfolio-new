@@ -1,33 +1,96 @@
-import React from 'react';
-import { SOCIAL_LINKS } from '../../constants';
-import { FaFacebookSquare, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import styles from './Footer.module.css';
 
-const IconMap = {
-  facebook: FaFacebookSquare,
-  instagram: FaInstagram,
-  twitter: FaTwitter,
-  linkedin: FaLinkedin
-};
-
-const Footer = () => {
+export default function Footer({
+  logo,
+  brandName,
+  socialLinks = [],
+  mainLinks = [],
+  legalLinks = [],
+  copyright,
+}) {
   return (
-    <footer id="contact" className="container">
-      <div className={styles.footerContent}>
-        <div className={styles.socialLinks}>
-          {SOCIAL_LINKS.map(link => {
-            const Icon = IconMap[link.icon];
-            return (
-              <a key={link.icon} href={link.url} className={styles.socialIcon} aria-label={link.icon}>
-                <Icon size={30} />
-              </a>
-            );
-          })}
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+
+        <div className={styles.topSection}>
+
+          <a
+            href="/"
+            className={styles.brand}
+            aria-label={brandName || "Footer"}
+          >
+            {logo}
+
+            <span className={styles.brandName}>
+              {brandName}
+            </span>
+          </a>
+
+          <ul className={styles.socialLinks}>
+            {socialLinks.map((link, i) => (
+              <li key={i} className={styles.socialItem}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className={styles.socialButton}
+                >
+                  {link.icon}
+                </a>
+              </li>
+            ))}
+          </ul>
+
         </div>
-        <p className={styles.copyright}>Copyright ©2024 All rights reserved</p>
+
+        <div className={styles.bottomSection}>
+
+          <div className={styles.linksWrapper}>
+
+            <ul className={styles.linksList}>
+              {mainLinks.map((link, i) => (
+                <li key={i}>
+                  <a
+                    href={link.href}
+                    className={`${styles.link} ${styles.mainLink}`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <ul className={styles.linksList}>
+              {legalLinks.map((link, i) => (
+                <li key={i}>
+                  <a
+                    href={link.href}
+                    className={styles.link}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+          </div>
+
+          <div className={styles.copyright}>
+            <span className={styles.dot}></span>
+
+            <span>{copyright?.text}</span>
+
+            {copyright?.license && (
+              <div className={styles.license}>
+                {copyright.license}
+              </div>
+            )}
+          </div>
+
+        </div>
+
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

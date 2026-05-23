@@ -1,9 +1,36 @@
+import movewise1 from '../assets/Movewise/img1.jpeg';
+import movewise2 from '../assets/Movewise/img2.jpeg';
+import movewise3 from '../assets/Movewise/img3.jpeg';
+import movewise4 from '../assets/Movewise/img4.jpeg';
+import movewise5 from '../assets/Movewise/img5.jpeg';
+
+import rentengine1 from '../assets/Rentengine/pic1.jpg';
+import rentengine2 from '../assets/Rentengine/pic2.jpg';
+import rentengine3 from '../assets/Rentengine/pic3.jpg';
+import rentengine4 from '../assets/Rentengine/pic4.jpg';
+import rentengine5 from '../assets/Rentengine/pic5.jpg';
+
+import chatsphere1 from '../assets/ChatSphere/img1.jpg'
+import chatsphere2 from '../assets/ChatSphere/img2.png'
+
+import ayursutra1 from '../assets/Ayursutra/img1.png'
+import ayursutra2 from '../assets/Ayursutra/img2.png'
+import ayursutra3 from '../assets/Ayursutra/img3.png'
+import ayursutra4 from '../assets/Ayursutra/img4.png'
+import ayursutra5 from '../assets/Ayursutra/img5.png'
+
+import cqengine from '../assets/cqengine.png';
+import geoserver from '../assets/geoserver-icon.jpg';
+import eclipse from '../assets/eclipse-icon.png';
+import flashverse from '../assets/flashverse.jpg';
+
 export const getRecentPosts = () => {
   return [
     {
       id: 1,
       title: 'RentEngine : Car Rental System',
       date: '12 March 2026',
+      images: [rentengine1, rentengine2, rentengine3, rentengine4, rentengine5],
       navTo: '/rentengine',
       tags: ['MicroServices', 'SpringBoot','RabbitMQ'],
       summary: 'A full-stack microservices-based car rental platform where users can search rental agencies, browse vehicles, make bookings with real-time availability checks, and cancel bookings with automatic refund processing.'
@@ -11,6 +38,7 @@ export const getRecentPosts = () => {
     {
       id: 2,
       title: 'MoveWise : City Relocator App',
+      images: [movewise1, movewise2, movewise3, movewise4, movewise5],
       date: '23 October 2025',
       navTo: '/movewise',
       tags: ['React Native', 'Google Places API','Redis','SpringBoot'],
@@ -20,6 +48,7 @@ export const getRecentPosts = () => {
       id: 3,
       title: 'Ayursutra : Hospital Management System',
       date: '15 August 2025',
+      images: [ayursutra1, ayursutra2, ayursutra3, ayursutra4, ayursutra5],
       navTo: '/ayursutra',
       tags: ['MongoDB', 'Express', 'React','Google Authentication','FireBase'],
       image: '/assets/ayursutra.png',
@@ -29,6 +58,7 @@ export const getRecentPosts = () => {
       id: 4,
       title: 'ChatSphere : Chat Application',
       date: '3 January 2025',
+      images: [chatsphere1, chatsphere2],
       navTo: '/chatsphere',
       tags: ['MongoDB', 'SpringBoot', 'React','WebSockets'],
       image: '/assets/chatsphere.png',
@@ -94,24 +124,24 @@ export const getOpenSourceProjects = () => {
       id: 1,
       title: 'geoserver/geoserver-cloud',
       year: '2025',
+      image: geoserver,
       category: ['Java','Microservices','GeoServer'],
-      image: 'https://raw.githubusercontent.com/geoserver/geoserver-cloud/master/docs/img/logo.png',
       description: 'The GeoServer Cloud project provides a lightweight, cloud-native GeoServer deployment for Kubernetes. It offers seamless management of GeoServer instances via a custom resource definition (CRD), automating deployment, scaling, and configuration for geospatial data services.'
     },
     {
       id: 2,
       title: 'cqengine/cqengine',
       year: '2025',
+      image: cqengine,
       category: ['Java','Query Engine','Concurrency'],
-      image: 'https://raw.githubusercontent.com/cqengine/cqengine/dev/docs/images/cqengine-logo.jpg',
       description: 'CQEngine is a high-performance Java-based object query engine that allows you to index and query Java collections as if they were database tables. It supports SQL-like queries, predicative indexes, and efficient in-memory data management, making it ideal for complex data retrieval and analysis scenarios where database overhead is not desired.'
     },
     {
       id: 3,
       title: 'Eclipse Collections',
       year: '2025',
+      image: eclipse,
       category: ['Java','Collections','Functional Programming'],
-      image: 'https://raw.githubusercontent.com/eclipse/eclipse-collections/master/documentation/images/logo.png',
       description: 'Eclipse Collections is a comprehensive set of Java Collections Framework extensions that provide high-performance APIs for collection manipulation and analysis. It includes optimized implementations of lists, sets, maps, and bags, along with rich APIs for bulk operations, parallel processing, and functional-style programming.'
     }
   ]
@@ -125,7 +155,7 @@ export const getExperience = () => {
       role: 'Full Stack Developer Intern',
       type: 'Remote',
       duration: 'Jan 2026 - Present',
-      image: 'https://placehold.co/60x60',
+      image: flashverse,
       tags: ['React Native', 'Spring Boot', 'JWT', 'REST APIs', 'RBAC'],
       points: [
         'Built the complete authentication workflow using Spring Boot, including signup, login, logout, password reset, and persistent session management.',
@@ -145,3 +175,29 @@ export const getContactDetails = () => {
     }
   ]
 }
+export const NAVIGATION_LINKS = [
+  {
+    label: "Home",
+    path: "#home",
+  },
+  {
+    label: "Projects",
+    path: "#projects",
+  },
+  {
+    label: "Skills and Technologies",
+    path: "#skills",
+  },
+  {
+    label: "Open Source Contributions",
+    path: "#open-source",
+  },
+  { 
+    label: "Experience",
+    path: "#experience"
+  },
+  {
+    label: "Contact",
+    path: "#contact",
+  },
+];

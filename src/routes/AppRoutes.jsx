@@ -5,6 +5,8 @@ import Home from '../pages/Home';
 import Blog from '../pages/Blog';
 import RentEngine from '../pages/RentEngine';
 import MoveWise from '../pages/MoveWise';
+import ChatSphere from '../pages/ChatSphere';
+import AyurSutra from '../pages/AyurSutra';
 
 const AppRoutes = () => {
   return (
@@ -14,6 +16,8 @@ const AppRoutes = () => {
         <Route path="blog" element={<Blog />} />
         <Route path="rentengine" element={<RentEngine />} />
         <Route path="movewise" element={<MoveWise />} />
+        <Route path="chatsphere" element={<ChatSphere />} />
+        <Route path="ayursutra" element={<AyurSutra />} />
       </Route>
     </Routes>
   );
