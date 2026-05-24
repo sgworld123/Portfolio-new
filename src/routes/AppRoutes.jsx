@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import RentEngine from '../pages/RentEngine/RentEngine';
-import MoveWise from '../pages/MoveWise/MoveWise';
+import MoveWise from '../pages/Movewise/MoveWise';
 import ChatSphere from '../pages/ChatSphere/ChatSphere';
 import AyurSutra from '../pages/Ayursutra/AyurSutra';
 import Privpol from '../pages/LegalPages/Privpol';
