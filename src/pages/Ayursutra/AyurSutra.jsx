@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './AyurSutra.module.css';
+import styles from './Ayursutra.module.css';
 import ProjectCarousel from '../../components/ui/ProjectCarousel/ProjectCarousel';
 import ayursutra1 from '../../assets/Ayursutra/img1.png'
 import ayursutra2 from '../../assets/Ayursutra/img2.png'
