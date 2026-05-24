@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./MoveWise.module.css";
-import ProjectCarousel from "../components/ui/ProjectCarousel/ProjectCarousel";
+import ProjectCarousel from "../../components/ui/ProjectCarousel/ProjectCarousel";
 
-import movewise1 from '../assets/Movewise/img1.jpeg';
-import movewise2 from '../assets/Movewise/img2.jpeg';
-import movewise3 from '../assets/Movewise/img3.jpeg';
-import movewise4 from '../assets/Movewise/img4.jpeg';
-import movewise5 from '../assets/Movewise/img5.jpeg';
+import movewise1 from '../../assets/Movewise/img1.jpeg';
+import movewise2 from '../../assets/Movewise/img2.jpeg';
+import movewise3 from '../../assets/Movewise/img3.jpeg';
+import movewise4 from '../../assets/Movewise/img4.jpeg';
+import movewise5 from '../../assets/Movewise/img5.jpeg';
 
 const moveWiseImages = [
   movewise1,
@@ -32,6 +32,14 @@ const MoveWise = () => {
           <h1 className={styles.projectTitle}>
             MoveWise — Smart City Relocation Assistant
           </h1>
+          <a
+            href="https://github.com/sgworld123/MoveWise"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.githubCapsule}
+          >
+            View GitHub Repository
+          </a>
 
           <p className={styles.projectDescription}>
             MoveWise is a React Native and Spring Boot powered relocation
@@ -336,7 +344,11 @@ const MoveWise = () => {
       </section>
       <section id="gallery" className={styles.section}>
         <h2>Image Gallery</h2>
-        <ProjectCarousel images={moveWiseImages} title="MoveWise" />
+        <ProjectCarousel
+          images={moveWiseImages}
+          title="MoveWise"
+          className={styles.galleryCarousel}
+        />
       </section>
 
     </div>

@@ -1,0 +1,76 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.gifBox1 {
+  height: 350px;
+  background: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  mix-blend-mode: multiply;  /* safe — imgur gif has no white bg so no effect in dark */
+}
+.gifBox2 {
+  height: 350px;
+  background: url('https://media.giphy.com/media/14uQ3cOFteDaU/giphy.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  mix-blend-mode: screen;  /* safe — imgur gif has no white bg so no effect in dark */
+}
+
+
+.code {
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--foreground);
+  padding-top: 1rem;
+}
+
+.content {
+  margin-top: -2rem;
+}
+
+.content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.content p {
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}

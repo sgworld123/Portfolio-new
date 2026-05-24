@@ -42,12 +42,23 @@ body:not(.dark) .nav.scrolled {
     font-size: 1.1rem;
     letter-spacing: -0.02em;
     white-space: nowrap;
-
-    /* hidden at top, shown when scrolled */
-    opacity: 0;
-    width: 0;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    width: auto;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo img {
+    height: 43px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 20px;
+    padding: 4px 10px;
+    background: color-mix(in srgb, var(--card) 80%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border) 40%, transparent);
 }
 
 .nav.scrolled .logo {
@@ -77,8 +88,13 @@ body:not(.dark) .nav.scrolled {
     white-space: nowrap;
 }
 
-.link:hover { opacity: 1; }
-.active { opacity: 1; }
+.link:hover {
+    opacity: 1;
+}
+
+.active {
+    opacity: 1;
+}
 
 /* ─── Right side ────────────────────────────────────────── */
 .right {
@@ -99,7 +115,9 @@ body:not(.dark) .nav.scrolled {
     transition: opacity 0.2s ease;
 }
 
-.themeToggle:hover { opacity: 1; }
+.themeToggle:hover {
+    opacity: 1;
+}
 
 /* ─── Hamburger (mobile only) ───────────────────────────── */
 .hamburger {
@@ -113,7 +131,9 @@ body:not(.dark) .nav.scrolled {
     transition: opacity 0.2s ease;
 }
 
-.hamburger:hover { opacity: 1; }
+.hamburger:hover {
+    opacity: 1;
+}
 
 /* ─── Mobile dropdown ───────────────────────────────────── */
 .mobileMenu {
@@ -134,8 +154,8 @@ body:not(.dark) .nav.scrolled {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                padding 0.4s ease,
-                opacity 0.3s ease;
+        padding 0.4s ease,
+        opacity 0.3s ease;
     opacity: 0;
 }
 
@@ -165,7 +185,9 @@ body:not(.dark) .mobileMenu {
     background: rgba(255, 255, 255, 0.05);
 }
 
-.mobileLink.active { opacity: 1; }
+.mobileLink.active {
+    opacity: 1;
+}
 
 /* ─── Responsive ────────────────────────────────────────── */
 @media (max-width: 768px) {
@@ -184,12 +206,17 @@ body:not(.dark) .mobileMenu {
     }
 
     .logo {
-        opacity: 1;
+        opacity: 1;       /* ← always visible on mobile */
         width: auto;
+        overflow: visible;
+    }
+
+    .logo img {
+        height: 32px;     /* slightly smaller on mobile */
     }
 
     .links {
-        display: none; /* hidden on mobile, use dropdown instead */
+        display: none;
     }
 
     .hamburger {

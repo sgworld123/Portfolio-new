@@ -17,6 +17,14 @@ function ChatApp() {
                     <h1 className={styles.projectTitle}>
                         Real-Time Chat Application
                     </h1>
+                    <a
+                        href="https://github.com/sgworld123/chat-app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.githubCapsule}
+                    >
+                        View GitHub Repository
+                    </a>
 
                     <p className={styles.projectDescription}>
                         A real-time chat platform built using Spring Boot, WebSockets,

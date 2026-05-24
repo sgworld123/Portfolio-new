@@ -1,4 +1,4 @@
-/* RentEngine.module.css */
+/* MoveWise.module.css */
 
 .projectPage {
   min-height: 100vh;
@@ -10,7 +10,7 @@
 }
 
 /* =========================
-   HERO SECTION
+   HERO
 ========================= */
 
 .hero {
@@ -19,27 +19,6 @@
   padding: 5rem 1.5rem 4rem;
 
   overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--secondary) 18%, transparent),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      color-mix(in srgb, var(--primary) 14%, transparent),
-      transparent 40%
-    );
-
-  pointer-events: none;
 }
 
 .heroContent {
@@ -55,14 +34,14 @@
   align-items: center;
 
   padding: 0.55rem 1rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.5rem;
 
   border-radius: 999px;
 
-  border: 2px solid var(--border);
-
   background:
     color-mix(in srgb, var(--secondary) 18%, transparent);
+
+  border: 2px solid var(--border);
 
   color: var(--primary);
 
@@ -70,11 +49,11 @@
   font-weight: 600;
 
   box-shadow:
-    3px 3px 0 color-mix(in srgb, var(--border) 35%, transparent);
+    3px 3px 0 color-mix(in srgb, var(--border) 30%, transparent);
 }
 
 .projectTitle {
-  max-width: 900px;
+  max-width: 950px;
 
   font-size: clamp(2.8rem, 7vw, 5.8rem);
   line-height: 1.05;
@@ -82,7 +61,7 @@
 
   letter-spacing: -2px;
 
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.6rem;
 
   color: var(--foreground);
 }
@@ -95,7 +74,7 @@
 
   color: var(--muted-foreground);
 
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.7rem;
 }
 
 /* =========================
@@ -105,7 +84,9 @@
 .techStack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
+  gap: 0.85rem;
+
+  margin-top: 2rem;
 }
 
 .techStack span {
@@ -115,7 +96,7 @@
 
   background:
     linear-gradient(
-      135deg,
+      145deg,
       color-mix(in srgb, var(--card) 92%, white 8%),
       var(--card)
     );
@@ -126,7 +107,7 @@
   font-weight: 600;
 
   box-shadow:
-    4px 4px 0 color-mix(in srgb, var(--border) 28%, transparent);
+    4px 4px 0 color-mix(in srgb, var(--border) 24%, transparent);
 
   transition:
     transform 0.22s ease,
@@ -134,14 +115,14 @@
 }
 
 .techStack span:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 
   box-shadow:
-    6px 6px 0 color-mix(in srgb, var(--primary) 22%, transparent);
+    7px 7px 0 color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 /* =========================
-   GENERAL SECTION
+   SECTION
 ========================= */
 
 .section {
@@ -157,7 +138,7 @@
   width: fit-content;
 
   font-size: 2.3rem;
-  font-weight: 700;
+  font-weight: 800;
 
   margin-bottom: 2.5rem;
 
@@ -171,7 +152,7 @@
   left: 0;
   bottom: -10px;
 
-  width: 72px;
+  width: 70px;
   height: 4px;
 
   border-radius: 999px;
@@ -216,7 +197,7 @@
   border: 2px solid var(--border);
 
   box-shadow:
-    5px 5px 0 color-mix(in srgb, var(--border) 25%, transparent);
+    5px 5px 0 color-mix(in srgb, var(--border) 24%, transparent);
 
   transition:
     transform 0.25s ease,
@@ -227,7 +208,7 @@
   transform: translateY(-6px);
 
   box-shadow:
-    8px 8px 0 color-mix(in srgb, var(--primary) 22%, transparent);
+    8px 8px 0 color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 .featureCard h3 {
@@ -247,7 +228,57 @@
 }
 
 /* =========================
-   LISTS
+   CAPSULES
+========================= */
+
+.capsuleContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.capsule {
+  padding: 0.8rem 1.2rem;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--card) 94%, white 6%),
+      var(--card)
+    );
+
+  border: 2px solid var(--border);
+
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  color: var(--foreground);
+
+  box-shadow:
+    4px 4px 0 color-mix(in srgb, var(--border) 22%, transparent);
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.capsule:hover {
+  transform: translateY(-4px);
+
+  background: var(--primary);
+  color: var(--primary-foreground);
+
+  box-shadow:
+    7px 7px 0 color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+/* =========================
+   LIST
 ========================= */
 
 .list {
@@ -277,7 +308,7 @@
     linear-gradient(
       145deg,
       color-mix(in srgb, var(--card) 90%, transparent),
-      color-mix(in srgb, var(--accent) 86%, transparent)
+      color-mix(in srgb, var(--accent) 85%, transparent)
     );
 
   border: 2px solid var(--border);
@@ -290,7 +321,7 @@
   text-align: center;
 
   box-shadow:
-    7px 7px 0 color-mix(in srgb, var(--border) 24%, transparent);
+    7px 7px 0 color-mix(in srgb, var(--border) 22%, transparent);
 }
 
 .architectureGrid {
@@ -315,7 +346,7 @@
   font-weight: 600;
 
   box-shadow:
-    3px 3px 0 color-mix(in srgb, var(--border) 20%, transparent);
+    3px 3px 0 color-mix(in srgb, var(--border) 18%, transparent);
 }
 
 .architectureBox span {
@@ -355,7 +386,7 @@
   border: 2px solid var(--border);
 
   box-shadow:
-    5px 5px 0 color-mix(in srgb, var(--border) 22%, transparent);
+    5px 5px 0 color-mix(in srgb, var(--border) 20%, transparent);
 
   transition:
     transform 0.25s ease,
@@ -381,7 +412,7 @@
 .metricCard span {
   display: block;
 
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   font-weight: 800;
 
   color: var(--primary);
@@ -393,7 +424,7 @@
 
 @media (max-width: 900px) {
   .projectTitle {
-    font-size: 3.8rem;
+    font-size: 4rem;
   }
 
   .section h2 {
@@ -437,111 +468,113 @@
 
 @media (max-width: 480px) {
   .projectTitle {
-    font-size: 2.3rem;
-  }
-
-  .techStack {
-    gap: 0.6rem;
-  }
-
-  .techStack span {
-    font-size: 0.8rem;
+    font-size: 2.2rem;
   }
 
   .featureGrid,
   .metricsGrid {
     grid-template-columns: 1fr;
   }
-}
-.capsuleContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
 
-  margin-top: 2rem;
-}
+  .techStack {
+    gap: 0.6rem;
+  }
 
-.capsule {
-  padding: 0.8rem 1.2rem;
-
-  border-radius: 999px;
-
-  background:
-    linear-gradient(
-      145deg,
-      color-mix(in srgb, var(--card) 92%, white 8%),
-      var(--card)
-    );
-
-  border: 2px solid var(--border);
-
-  color: var(--foreground);
-
-  font-size: 0.92rem;
-  font-weight: 600;
-
-  box-shadow:
-    4px 4px 0 color-mix(in srgb, var(--border) 22%, transparent);
-
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    background 0.22s ease;
-}
-
-.capsule:hover {
-  transform: translateY(-4px);
-
-  background: var(--primary);
-  color: var(--primary-foreground);
-
-  box-shadow:
-    7px 7px 0 color-mix(in srgb, var(--primary) 20%, transparent);
+  .capsule {
+    font-size: 0.84rem;
+  }
 }
 /* Gallery Section */
 #gallery.section {
   max-width: 1200px;
   margin: 0 auto;
-
   padding: 4rem 1.5rem;
 }
 
-/* Heading */
 #gallery.section h2 {
   position: relative;
-
   width: fit-content;
-
   font-size: 2.4rem;
   font-weight: 800;
-
   margin-bottom: 2rem;
-
   color: var(--primary);
 }
 
 #gallery.section h2::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: -10px;
-
   width: 72px;
   height: 4px;
-
   border-radius: 999px;
-
   background: var(--secondary);
 }
 
-/* Carousel Root */
-#gallery.section :global(.carousel) {
-  overflow: hidden;
+/* Mobile carousel override */
+.galleryCarousel {
+  width: min(450px, 100%) !important;
+  margin: 0 auto !important;
+}
+.galleryCarousel :global(._imageWrapper_1far7_15) {
+  aspect-ratio: 9 / 19.5 !important;  /* tall phone ratio */
+  width: 100% !important;
+}
 
-  border-radius: 2rem;
+.galleryCarousel :global(img) {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
 
-  border: 2px solid var(--border);
+@media (max-width: 768px) {
+  #gallery.section {
+    padding: 3rem 1.2rem;
+  }
+  #gallery.section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #gallery.section h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  #gallery.section {
+    padding: 3rem 1.2rem;
+  }
+  #gallery.section h2 {
+    font-size: 2rem;
+  }
+  #gallery.section :global(.carousel) {
+    width: min(300px, 100%);
+  }
+}
+
+@media (max-width: 480px) {
+  #gallery.section h2 {
+    font-size: 1.7rem;
+  }
+  #gallery.section :global(.carousel) {
+    width: 100%;
+  }
+}
+.githubCapsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 2rem;
+
+  padding: 0.9rem 1.4rem;
+
+  border-radius: 999px;
 
   background:
     linear-gradient(
@@ -550,109 +583,31 @@
       var(--card)
     );
 
-  padding: 1rem;
+  border: 2px solid var(--border);
+
+  color: var(--foreground);
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  text-decoration: none;
 
   box-shadow:
-    8px 8px 0 color-mix(in srgb, var(--border) 22%, transparent);
-}
-
-/* Image Wrapper */
-#gallery.section :global(.imageWrapper) {
-  overflow: hidden;
-
-  border-radius: 1.4rem;
-}
-
-/* Main Image */
-#gallery.section :global(.carouselImage) {
-  width: 100%;
-  height: 680px;
-
-  object-fit: cover;
-
-  display: block;
-
-  border-radius: 1.4rem;
-
-  transition: transform 0.35s ease;
-}
-
-#gallery.section :global(.carouselImage:hover) {
-  transform: scale(1.01);
-}
-
-/* Dots Container */
-#gallery.section :global(.dots) {
-  display: flex;
-  justify-content: center;
-  gap: 0.7rem;
-
-  margin-top: 1.2rem;
-}
-
-/* Dot */
-#gallery.section :global(.dot) {
-  width: 11px;
-  height: 11px;
-
-  border-radius: 50%;
-
-  border: none;
-
-  background:
-    color-mix(in srgb, var(--muted-foreground) 40%, transparent);
-
-  cursor: pointer;
+    4px 4px 0 color-mix(in srgb, var(--border) 22%, transparent);
 
   transition:
     transform 0.22s ease,
-    background 0.22s ease;
+    background 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
-#gallery.section :global(.dot:hover) {
-  transform: scale(1.15);
-}
+.githubCapsule:hover {
+  transform: translateY(-4px);
 
-/* Active Dot */
-#gallery.section :global(.dotActive) {
   background: var(--primary);
-
-  transform: scale(1.25);
+  color: var(--primary-foreground);
 
   box-shadow:
-    0 0 10px color-mix(in srgb, var(--primary) 35%, transparent);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-  #gallery.section :global(.carouselImage) {
-    height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  #gallery.section {
-    padding: 3rem 1.2rem;
-  }
-
-  #gallery.section h2 {
-    font-size: 2rem;
-  }
-
-  #gallery.section :global(.carouselImage) {
-    height: 360px;
-  }
-}
-
-@media (max-width: 480px) {
-  #gallery.section h2 {
-    font-size: 1.7rem;
-  }
-
-  #gallery.section :global(.carouselImage) {
-    height: 240px;
-  }
+    7px 7px 0 color-mix(in srgb, var(--primary) 18%, transparent);
 }

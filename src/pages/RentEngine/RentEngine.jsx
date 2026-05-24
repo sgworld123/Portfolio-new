@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './RentEngine.module.css';
-import ProjectCarousel from '../components/ui/ProjectCarousel/ProjectCarousel';
-import rentengine1 from '../assets/Rentengine/pic1.jpg';
-import rentengine2 from '../assets/Rentengine/pic2.jpg';
-import rentengine3 from '../assets/Rentengine/pic3.jpg';
-import rentengine4 from '../assets/Rentengine/pic4.jpg';
-import rentengine5 from '../assets/Rentengine/pic5.jpg';
+import ProjectCarousel from '../../components/ui/ProjectCarousel/ProjectCarousel';
+import rentengine1 from '../../assets/Rentengine/pic1.jpg';
+import rentengine2 from '../../assets/Rentengine/pic2.jpg';
+import rentengine3 from '../../assets/Rentengine/pic3.jpg';
+import rentengine4 from '../../assets/Rentengine/pic4.jpg';
+import rentengine5 from '../../assets/Rentengine/pic5.jpg';
 
 const rentEngineImages = [rentengine1, rentengine2, rentengine3, rentengine4, rentengine5];
 const RentEngine = () => {
@@ -17,6 +17,14 @@ const RentEngine = () => {
         <h1 className={styles.projectTitle}>
           RentEngine — Distributed Car Rental Ecosystem
         </h1>
+        <a
+          href="https://github.com/sgworld123/Car-Rental-System"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.githubCapsule}
+        >
+          View GitHub Repository
+        </a>
         <h2>Project Overview</h2>
 
         <p>

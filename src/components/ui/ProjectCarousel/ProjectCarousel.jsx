@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./ProjectCarousel.module.css"; // or your existing module
 
-const ProjectCarousel = ({ images = [], title = "" }) => {
+const ProjectCarousel = ({ images = [], title = "" ,className = ""}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
 
@@ -32,7 +32,7 @@ const ProjectCarousel = ({ images = [], title = "" }) => {
 
   return (
     <div
-      className={styles.carousel}
+      className={`${styles.carousel} ${className}`}
       onMouseEnter={stopAutoPlay}
       onMouseLeave={startAutoPlay}
     >

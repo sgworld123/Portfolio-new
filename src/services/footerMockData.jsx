@@ -12,12 +12,12 @@ export const footerData = {
 
   socialLinks: [
     {
-      href: "https://github.com",
+      href: "https://github.com/sgworld123",
       label: "GitHub",
       icon: <FaGithub />,
     },
     {
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/shreyansh-gupta-503253294/",
       label: "LinkedIn",
       icon: <FaLinkedin />,
     },
@@ -49,11 +49,11 @@ export const footerData = {
 
   legalLinks: [
     {
-      href: "/privacy",
+      href: "/privacy-policy",
       label: "Privacy Policy",
     },
     {
-      href: "/terms",
+      href: "/terms-of-service",
       label: "Terms of Service",
     },
   ],

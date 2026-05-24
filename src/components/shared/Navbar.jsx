@@ -5,6 +5,7 @@ import { useTheme } from '../../hooks/useTheme';
 import { NAVIGATION_LINKS } from '../../services/mockData';
 import styles from './Navbar.module.css';
 import { classNames } from '../../utils/helpers';
+import logo from '../../assets/logo2.png';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -75,7 +76,7 @@ const Navbar = () => {
   return (
     <>
       <nav className={classNames(styles.nav, scrolled ? styles.scrolled : '')}>
-        <div className={styles.logo}>YourLogo</div>
+        <div className={styles.logo}><img src={logo} alt="Logo" /></div>
 
         <div className={styles.links}>
           {NAVIGATION_LINKS.map(link => renderLink(link, false))}

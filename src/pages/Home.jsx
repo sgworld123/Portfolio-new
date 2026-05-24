@@ -56,8 +56,9 @@ const Home = () => {
       <section className="container" id="home">
         <div className={styles.hero}>
           <div className={styles.heroContent}>
-            <h1>Hi, I am Shreyansh,<br />Creative Technologist</h1>
-            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+            <h1>Hi, I am Shreyansh,<br /></h1>
+            <p>Building scalable applications with clean architecture and modern technologies.
+              I enjoy designing backend systems, crafting polished interfaces, and turning ideas into usable products.</p>
 
             <div className={styles.heroButtons}>
 
@@ -70,11 +71,11 @@ const Home = () => {
                 Download Resume
               </Button>
 
-              <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className={styles.btnOutline}>
+              <a href="https://github.com/sgworld123" target="_blank" rel="noreferrer" className={styles.btnOutline}>
                 GitHub
               </a>
 
-              <a href="https://leetcode.com/YOUR_USERNAME" target="_blank" rel="noreferrer" className={styles.btnOutline}>
+              <a href="https://leetcode.com/sgworld123" target="_blank" rel="noreferrer" className={styles.btnOutline}>
                 LeetCode
               </a>
 
@@ -82,7 +83,7 @@ const Home = () => {
           </div>
 
           <div className={styles.heroImage}>
-            <img src="/assets/avatar.png" alt="Shreyansh - Avatar" />
+            <img src="/assets/image.png" alt="Shreyansh - Avatar" />
           </div>
         </div>
       </section>
