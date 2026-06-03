@@ -4,11 +4,16 @@ import movewise3 from '../assets/Movewise/img3.jpeg';
 import movewise4 from '../assets/Movewise/img4.jpeg';
 import movewise5 from '../assets/Movewise/img5.jpeg';
 
-import rentengine1 from '../assets/Rentengine/pic1.jpg';
-import rentengine2 from '../assets/Rentengine/pic2.jpg';
-import rentengine3 from '../assets/Rentengine/pic3.jpg';
-import rentengine4 from '../assets/Rentengine/pic4.jpg';
-import rentengine5 from '../assets/Rentengine/pic5.jpg';
+import rentengine1 from '../assets/Rentengine/one.jpg';
+import rentengine2 from '../assets/Rentengine/two.jpg';
+import rentengine3 from '../assets/Rentengine/three.jpg';
+import rentengine4 from '../assets/Rentengine/four.jpg';
+import rentengine5 from '../assets/Rentengine/five.jpg';      
+import rentengine6 from '../assets/Rentengine/six.jpg';
+import rentengine7 from '../assets/Rentengine/seven.jpg';
+import rentengine8 from '../assets/Rentengine/eight.jpg';
+import rentengine9 from '../assets/Rentengine/nine.jpg';
+import rentengine10 from '../assets/Rentengine/ten.jpg';
 
 import chatsphere1 from '../assets/ChatSphere/img1.jpg'
 import chatsphere2 from '../assets/ChatSphere/img2.png'
@@ -30,7 +35,7 @@ export const getRecentPosts = () => {
       id: 1,
       title: 'RentEngine : Car Rental System',
       date: '12 March 2026',
-      images: [rentengine1, rentengine2, rentengine3, rentengine4, rentengine5],
+      images: [rentengine1, rentengine2, rentengine3, rentengine4, rentengine5, rentengine6, rentengine7, rentengine8, rentengine9, rentengine10],
       navTo: '/rentengine',
       tags: ['MicroServices', 'SpringBoot','RabbitMQ'],
       summary: 'A full-stack microservices-based car rental platform where users can search rental agencies, browse vehicles, make bookings with real-time availability checks, and cancel bookings with automatic refund processing.'

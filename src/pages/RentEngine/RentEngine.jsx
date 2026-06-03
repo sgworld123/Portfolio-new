@@ -1,13 +1,18 @@
 import React from 'react';
 import styles from './RentEngine.module.css';
 import ProjectCarousel from '../../components/ui/ProjectCarousel/ProjectCarousel';
-import rentengine1 from '../../assets/Rentengine/pic1.jpg';
-import rentengine2 from '../../assets/Rentengine/pic2.jpg';
-import rentengine3 from '../../assets/Rentengine/pic3.jpg';
-import rentengine4 from '../../assets/Rentengine/pic4.jpg';
-import rentengine5 from '../../assets/Rentengine/pic5.jpg';
+import rentengine1 from '../../assets/Rentengine/one.jpg';
+import rentengine2 from '../../assets/Rentengine/two.jpg';
+import rentengine3 from '../../assets/Rentengine/three.jpg';
+import rentengine4 from '../../assets/Rentengine/four.jpg';
+import rentengine5 from '../../assets/Rentengine/five.jpg';
+import rentengine6 from '../../assets/Rentengine/six.jpg';
+import rentengine7 from '../../assets/Rentengine/seven.jpg';
+import rentengine8 from '../../assets/Rentengine/eight.jpg';
+import rentengine9 from '../../assets/Rentengine/nine.jpg';
+import rentengine10 from '../../assets/Rentengine/ten.jpg';
 
-const rentEngineImages = [rentengine1, rentengine2, rentengine3, rentengine4, rentengine5];
+const rentEngineImages = [rentengine1, rentengine2, rentengine3, rentengine4, rentengine5, rentengine6, rentengine7, rentengine8, rentengine9, rentengine10];
 const RentEngine = () => {
   return (
     <div className={styles.projectPage}>
